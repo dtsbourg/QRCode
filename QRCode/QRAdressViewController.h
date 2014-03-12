@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QRAdressViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSMutableDictionary *adr;
-    NSMutableArray *people;
-}
+@interface QRAdressViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic)NSMutableDictionary *adr;
+@property (weak, nonatomic)NSMutableArray *people;
 
 
-- (void)passPeople:(NSMutableArray *)array;
-- (void)passAdress:(NSMutableDictionary *)dict;
 
 @end

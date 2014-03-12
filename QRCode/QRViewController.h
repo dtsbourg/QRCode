@@ -10,12 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "QRAdressViewController.h"
 
-@interface QRViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate> {
-    
-    NSMutableArray *tempPeople;
-    NSMutableDictionary *tempAdress;
-    
-}
+@interface QRViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;
 @property (weak, nonatomic) IBOutlet UIButton *bbitemStart;

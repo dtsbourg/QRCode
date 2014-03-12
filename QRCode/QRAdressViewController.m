@@ -11,11 +11,9 @@
 
 @interface QRAdressViewController ()
 
-
 @end
 
 @implementation QRAdressViewController
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,10 +33,6 @@
     adr = [[NSMutableDictionary alloc] initWithObjects:@[@"D8nqWPm9YQHTa2L5Y9DnYpQCvD36HAbkWf", @"D8npWL2DQHTa2L5Y9DnYpQCvD36HAbkWf", @"D8npWPm9EQHTa2L5c9DnYpQCAD36HAbkWf"] forKeys:people];
     }*/
     
-    people=[[NSMutableArray alloc] init];
-    adr=[[NSMutableDictionary alloc] init];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [adr count];
+    return [self.adr count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,24 +58,13 @@
     
     cell.backgroundColor = [UIColor colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1.0f];
     
-    cell.textLabel.text = people[indexPath.row];
+    cell.textLabel.text = self.people[indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
     
-    cell.detailTextLabel.text = [adr objectForKey:people[indexPath.row]];
+    cell.detailTextLabel.text = [self.adr objectForKey:self.people[indexPath.row]];
     cell.detailTextLabel.textColor = [UIColor colorWithRed:144.0f/255.0f green:222.0f/255.0f blue:47.0f/255.0f alpha:1.0f];
     return cell;
 }
-
-- (void)passPeople:(NSMutableArray *)array {
-    [people addObject:array];
-    NSLog(@"Data Passed = %@",people);
-}
-
-- (void)passAdress:(NSMutableDictionary *)dict {
-    [adr addEntriesFromDictionary:dict];
-    NSLog(@"Data Passed = %@",adr);
-}
-
 
 
 @end

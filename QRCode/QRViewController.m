@@ -29,11 +29,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     _captureSession = nil;
-    
     _isReading = NO;
     
-    tempPeople = [[NSMutableArray alloc] init];
-    tempAdress = [[NSMutableDictionary alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,14 +126,7 @@
             // Everything is done on the main thread.
             
             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
-            /*if([self.delegate respondsToSelector:@selector(passPeople:)] && [self.delegate respondsToSelector:@selector(passAdress:)]) {
-                
-                [tempPeople addObject:@"Dylan Bourgeois"];
-                [tempAdress setObject:_metadataObj.stringValue forKey:@"Dylan Bourgeois"];
-                
-                [self.delegate passPeople:tempPeople];
-                [self.delegate passAdress:tempAdress];
-            }*/
+   
             [self performSegueWithIdentifier: @"SegueObj" sender: self];
             _isReading = NO;
         }
@@ -148,14 +138,8 @@
     if ([segue.identifier isEqualToString:@"SegueObj"])
     {
         QRAdressViewController *destvc= segue.destinationViewController;
-        
-        [tempPeople addObject:@"Dylan Bourgeois"];
-        [tempAdress setObject:_metadataObj.stringValue forKey:@"Dylan Bourgeois"];
-        
-        NSLog(@"%@ %@", tempAdress, tempPeople);
-        
-        [destvc passPeople:tempPeople];
-        [destvc passAdress:tempAdress];
+        [destvc.adr setObject:@"D8nqWPm9YQHTa2L5Y9DnYpQCvD36HAbkWf" forKey:@"Dylan Bourgeois"];
+        [destvc.people addObject:@"Dylan Bourgeois"];
     }
 }
 
